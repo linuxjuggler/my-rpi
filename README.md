@@ -7,27 +7,27 @@ if you can help, feel free to fork -> update then send a PR .
 # Notes to myself:
 
 #changing to startic ip
-cd /etc/network
+    cd /etc/network
 
-sudo nano interfaces
+    sudo nano interfaces
 
 #replace the line “iface eth0 inet dhcp” with
 
-iface eth0 inet static
-address 192.168.1.4
-netmask 255.255.255.0
-gateway 192.168.1.1
+    iface eth0 inet static
+    address 192.168.1.4
+    netmask 255.255.255.0
+    gateway 192.168.1.1
 
 
 #check resolve.conf
-sudo nano /etc/resolve.conf
+    sudo nano /etc/resolve.conf
 
-nameserver 192.168.1.1
+    nameserver 192.168.1.1
 
 #edit nginx.conf and add the following
-include /etc/nginx/sites-enabled/*;
+    include /etc/nginx/sites-enabled/*;
 
-1. remember to copy the default config from tipsy site since yuo have it there.
+
 1. remember to change the default user & group for fpm
 1. remember to change the hostname to `zahertest.local`
 1. try to see how `seed` work
