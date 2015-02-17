@@ -4,14 +4,14 @@ this is a personal experimental project, plus its a way for me to learn more and
 
 if you can help, feel free to fork -> update then send a PR .
 
-# Notes to myself:
+## Notes to myself:
 
-#changing to startic ip
+### changing to startic ip
     cd /etc/network
 
     sudo nano interfaces
 
-#replace the line “iface eth0 inet dhcp” with
+### replace the line “iface eth0 inet dhcp” with
 
     iface eth0 inet static
     address 192.168.1.4
@@ -19,13 +19,23 @@ if you can help, feel free to fork -> update then send a PR .
     gateway 192.168.1.1
 
 
-#check resolve.conf
+### check resolve.conf
     sudo nano /etc/resolve.conf
 
     nameserver 192.168.1.1
 
-#edit nginx.conf and add the following
+### edit nginx.conf and add the following
     include /etc/nginx/sites-enabled/*;
+
+### change the swap size
+
+    sudo nano /etc/dphys-swapfile
+    
+    // change it to 1024
+    CONF_SWAPSIZE=512
+
+    sudo dphys-swapfile setup
+
 
 
 1. remember to change the default user & group for fpm
@@ -36,7 +46,7 @@ if you can help, feel free to fork -> update then send a PR .
 
 * compiling nginx has been taken from [http://lowpowerlab.com/blog/2013/10/07/raspberrypi-home-automation-gateway-setup/](http://lowpowerlab.com/blog/2013/10/07/raspberrypi-home-automation-gateway-setup/)
 * Precompiled Nodejs 0.12.0 has been downloaded from [http://conoroneill.net//download-compiled-version-of-nodejs-0120-stable-for-raspberry-pi-here](http://conoroneill.net//download-compiled-version-of-nodejs-0120-stable-for-raspberry-pi-here)
-
+* Increase or add swap file (Raspberry Pi) [http://snippets.khromov.se/increase-or-add-swap-file-raspberry-pi/](http://snippets.khromov.se/increase-or-add-swap-file-raspberry-pi/)
 
 ## last note:
 
