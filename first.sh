@@ -5,7 +5,7 @@ STATIC_IP=192.168.1.27
 HOSTNAME=zaherpi2
 
 sudo -s
-echo "## Change the resolve.conf to use google DNS"
+echo "## Change the resolv.conf to use google DNS"
 echo "nameserver 8.8.8.8" > /etc/resolv.conf
 echo "nameserver 8.8.4.4" >> /etc/resolv.conf
 
