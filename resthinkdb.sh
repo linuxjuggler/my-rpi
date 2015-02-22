@@ -1,4 +1,4 @@
-!#/bin/bash
+!#/bin/sh
 
 RESTHINKDB_VERSION=1.16.2-1
 

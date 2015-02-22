@@ -1,4 +1,4 @@
-!#/bin/bash
+!#/bin/sh
 
 SWAP_SIZE=512
 STATIC_IP=192.168.1.27
