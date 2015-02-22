@@ -23,10 +23,10 @@ sudo apt-get install build-essential -y
 sudo apt-get install libpcre3 libpcre3-dev libpcrecpp0 libssl-dev zlib1g-dev -y
 
 echo "## Downloading nginx"
-sudo mkdir $HOME_DIR/src
+mkdir $HOME_DIR/src
 cd $HOME_DIR/src
-sudo curl $NGINX_URL -o nginx.tar.gz
-sudo tar zxf nginx.tar.gz
+curl $NGINX_URL -o nginx.tar.gz
+tar zxf nginx.tar.gz
 
 echo "## Configure nginx"
 cd nginx-$NGINX_VERSION
@@ -47,7 +47,7 @@ sudo ./configure \
     --without-mail_smtp_module
 
 echo "## Installing nginx"
-sudo make && sudo make install
+make && sudo make install
 
 echo "## enable nginx service"
 sudo cp $HOME_DIR/nginx_start /etc/init.d/nginx
