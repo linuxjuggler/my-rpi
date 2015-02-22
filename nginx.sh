@@ -2,6 +2,14 @@
 
 NGINX_VERSION=1.6.2
 NGINX_URL=http://nginx.org/download/nginx-{$NGINX_VERSION}.tar.gz
+HOME=/home/pi/my-pi
+
+
+cd $HOME
+
+echo "## Make sure the language is working"
+sudo locale-gen en_GB.UTF-8
+sudo locale-gen en_US.UTF-8
 
 
 echo "## make sure we have the latest code"
@@ -13,8 +21,8 @@ sudo apt-get install build-essential -y
 sudo apt-get install libpcre3 libpcre3-dev libpcrecpp0 libssl-dev zlib1g-dev -y
 
 echo "## Downloading nginx"
-sudo mkdir ~/src
-cd ~/src
+sudo mkdir $HOME/src
+cd $HOME/src
 sudo curl $NGINX_URL -o nginx.tar.gz
 sudo tar zxf nginx.tar.gz
 
@@ -40,14 +48,14 @@ echo "## Installing nginx"
 sudo make && sudo make install
 
 echo "## enable nginx service"
-sudo cp ~/nginx_start /etc/init.d/nginx
+sudo cp $HOME/nginx_start /etc/init.d/nginx
 sudo chmod +x /etc/init.d/nginx
 sudo update-rc.d -f nginx defaults
 #sudo mkdir /etc/nginx/{sites-available,sites-enabled}
-sudo rm -fr ~/src
+sudo rm -fr $HOME/src
 
 echo "## create the default site"
-sudo cp ~/laravel /etc/nginx/sites-avaliable/laravel
+sudo cp $HOME/laravel /etc/nginx/sites-avaliable/laravel
 sudo cd /etc/nginx/sites-enabled
 sudo ln -s ../sites-avaliable/laravel
 
@@ -55,9 +63,11 @@ echo "## installing php"
 sudo apt-get update && sudo apt-get -y upgrade
 sudo apt-get -y install php5-fpm php5-mcrypt php5-sqlite sqlite php5-cli php5-xcache php5-curl
 
+
 echo "## Installing composer"
+cd $HOME
 curl -sS http://getcomposer.org/installer | php
-sudo mv composer.phar /usr/local/bin/composer
+sudo mv $HOME/composer.phar /usr/local/bin/composer
 sudo chown pi:pi  /usr/local/bin/composer
 
 echo "## Creating the web directory"
