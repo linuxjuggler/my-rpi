@@ -24,7 +24,7 @@ dphys-swapfile setup
 echo "## Change the interfaces to static one"
 rm /etc/network/interfaces
 cp $HOME_DIR/interfaces /etc/network/interfaces
-sed -i 's/192.168.1.27 /{$STATIC_IP}/' /etc/network/interfaces
+sed -i 's/192.168.1.27/{$STATIC_IP}/' /etc/network/interfaces
 
 echo "## We are going to reboot now"
 reboot -n

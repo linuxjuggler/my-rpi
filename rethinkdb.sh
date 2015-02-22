@@ -8,11 +8,18 @@ sudo apt-get install g++ protobuf-compiler libprotobuf-dev libboost-dev curl m4 
 echo "## Downloading rethinkdb archive"
 mkdir src
 cd src
-wget -c http://download.rethinkdb.com/dist/rethinkdb-{$RESTHINKDB_VERSION}.tgz
-tar xf rethinkdb-{$RESTHINKDB_VERSION}.tgz
+wget -c http://download.rethinkdb.com/dist/rethinkdb-$RESTHINKDB_VERSION.tgz
+tar xf rethinkdb-$RESTHINKDB_VERSION.tgz
 
 cd rethinkdb-$RESTHINKDB_VERSION
 ./configure --with-system-malloc --allow-fetch
 
 echo "## now executing make && make install"
 make && sudo make install
+
+echo "## installing the javascript client"
+npm install rethinkdb
+
+echo "## cleanup everything"
+cd ../../
+sudo rm -fr src

@@ -60,8 +60,8 @@ sudo rm -fr $HOME_DIR/src
 
 echo "## create the default site"
 sudo cp $HOME_DIR/laravel /etc/nginx/sites-available/laravel
-sudo sed -i 's/zaherpi2.local /{$LOCAL_ADDRESS}/' /etc/nginx/sites-available/laravel
-sudo sed -i 's/192.168.1.27 /{$LOCAL_IP}/' /etc/nginx/sites-available/laravel
+sudo sed -i 's/zaherpi2.local/{$LOCAL_ADDRESS}/' /etc/nginx/sites-available/laravel
+sudo sed -i 's/192.168.1.27/{$LOCAL_IP}/' /etc/nginx/sites-available/laravel
 cd /etc/nginx/sites-enabled
 sudo ln -s ../sites-available/laravel
 
