@@ -3,28 +3,28 @@
 SWAP_SIZE=512
 STATIC_IP=192.168.1.27
 HOSTNAME=zaherpi2
+HOME_DIR=/home/pi/my-pi
 
-sudo -s
 echo "## Change the resolv.conf to use google DNS"
-echo "nameserver 8.8.8.8" > /etc/resolv.conf
-echo "nameserver 8.8.4.4" >> /etc/resolv.conf
+sudo echo "nameserver 8.8.8.8" > /etc/resolv.conf
+sudo echo "nameserver 8.8.4.4" >> /etc/resolv.conf
 
 echo "## Change the hostname"
-echo $HOSTNAME > /etc/hostname
-/etc/init.d/hostname.sh restart
+sudo echo $HOSTNAME > /etc/hostname
+sudo /etc/init.d/hostname.sh restart
 
 echo "## Updating the system"
-apt-get update && apt-get -y upgrade
-rpi-update
+sudo apt-get update && apt-get -y upgrade
+sudo rpi-update
 
 echo "## Change the swap size"
-echo CONF_SWAPSIZE=$SWAP_SIZE > /etc/dphys-swapfile
-dphys-swapfile setup
+sudo echo CONF_SWAPSIZE=$SWAP_SIZE > /etc/dphys-swapfile
+sudo dphys-swapfile setup
 
 echo "## Change the interfaces to static one"
-rm /etc/network/interfaces
-cp $HOME_DIR/interfaces /etc/network/interfaces
-sed -i 's/192.168.1.27/{$STATIC_IP}/' /etc/network/interfaces
+sudo rm /etc/network/interfaces
+sudo cp $HOME_DIR/interfaces /etc/network/interfaces
+sudo sed -i 's/192.168.1.27/{$STATIC_IP}/' /etc/network/interfaces
 
 echo "## We are going to reboot now"
-reboot -n
+sudo reboot -n
