@@ -11,7 +11,8 @@ sudo echo "nameserver 8.8.4.4" >> /etc/resolv.conf
 
 echo "## Change the hostname"
 sudo echo $HOSTNAME > /etc/hostname
-sudo /etc/init.d/hostname.sh restart
+sudo /etc/init.d/hostname.sh stop
+sudo /etc/init.d/hostname.sh start
 
 echo "## Updating the system"
 sudo apt-get update && apt-get -y upgrade
