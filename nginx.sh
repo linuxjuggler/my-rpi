@@ -86,6 +86,3 @@ chown pi:pi  /var/www/laravel
 
 echo "## restarting nginx"
 sudo service nginx restart
-
-echo "## installing avahi-daemon"
-sudo apt-get install -y avahi-daemon

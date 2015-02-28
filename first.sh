@@ -9,6 +9,9 @@ echo "## Change the resolv.conf to use google DNS"
 sudo echo "nameserver 8.8.8.8" > /etc/resolv.conf
 sudo echo "nameserver 8.8.4.4" >> /etc/resolv.conf
 
+echo "## installing avahi-daemon"
+sudo apt-get install -y avahi-daemon
+
 echo "## Change the hostname"
 sudo echo $HOSTNAME > /etc/hostname
 sudo /etc/init.d/hostname.sh stop
